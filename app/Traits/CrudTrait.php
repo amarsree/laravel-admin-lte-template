@@ -8,13 +8,12 @@ trait CrudTrait
 {
     public function index()
     {
-        $states = $this->modal->orderBy('created_at', 'desc')->get();
+        $entity_data = $this->modal->orderBy('created_at', 'desc')->get();
 
         $data = [
             'title' => $this->title,
-            'name' => $this->title,
-            'resource_path' => url('states'),
-            'data' => $states,
+            'resource_path' => $this->resource_path,
+            'data' => $entity_data,
             'table_headings' => $this->get_values_as_key_pair(collect($this->modalStructure), 'label', 'name'),
         ];
 
@@ -24,7 +23,7 @@ trait CrudTrait
     public function create()
     {
         $data = [
-            'name' => $this->title,
+            'title' => $this->title,
             'resource_path' => $this->resource_path,
             'input_fields' => $this->modalStructure,
         ];
@@ -38,7 +37,7 @@ trait CrudTrait
 
         $this->save_modal($this->modal, $validated);
 
-        return redirect('states')->with('message-success', $request->name.' added successfully');
+        return redirect($this->resource_path)->with('message-success', $request->name . ' added successfully');
     }
 
     public function edit($id)
@@ -46,7 +45,7 @@ trait CrudTrait
         $entity = $this->modal::findOrFail($id);
 
         $data = [
-            'name' => $this->title,
+            'title' => $this->title,
             'resource_path' => $this->resource_path,
             'entity' => $entity,
             'input_fields' => $this->modalStructure,
@@ -63,20 +62,22 @@ trait CrudTrait
 
         $this->save_modal($entity, $validated);
 
-        return redirect('states')->with('message-success', $request->name.' updated successfully');
+        return redirect($this->resource_path)->with('message-success', $request->name . ' updated successfully');
     }
 
-    public function destroy(State $State)
+    public function destroy($id)
     {
-        if ($State->is_active) {
-            $State->update(['is_active' => 0]);
+        $entity = $this->modal::findOrFail($id);
+
+        if ($entity->is_active) {
+            $entity->update(['is_active' => 0]);
             $status = 'disabled';
         } else {
-            $State->update(['is_active' => 1]);
+            $entity->update(['is_active' => 1]);
             $status = 'activated';
         }
 
-        return redirect('States')->with('message-success', $State->name.' is '.$status.'  successfully');
+        return redirect($this->resource_path)->with('message-success', $this->title . ' is ' . $status . '  successfully');
     }
 
     private function get_values_as_key_pair($collection, $return_key, $return_value)

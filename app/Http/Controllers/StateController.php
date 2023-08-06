@@ -17,12 +17,10 @@ class StateController extends Controller
 
     protected $resource_path;
 
-    protected $request;
-
     public function __construct()
     {
         $this->modal = new State;
-        $this->title = 'city';
+        $this->title = 'state';
         $this->modalStructure = config('form_fields.state');
         $this->resource_path = url('states');
     }
