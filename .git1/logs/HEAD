@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 61c091cb2597ffbe1b1a5a9da8a4bcb6e7b592c4 amarsree <amarsree007@gmail.com> 1690221956 +0530	commit (initial): initial commit
-61c091cb2597ffbe1b1a5a9da8a4bcb6e7b592c4 0000000000000000000000000000000000000000 amarsree <amarsree007@gmail.com> 1690221976 +0530	Branch: renamed refs/heads/main to refs/heads/main
-61c091cb2597ffbe1b1a5a9da8a4bcb6e7b592c4 61c091cb2597ffbe1b1a5a9da8a4bcb6e7b592c4 amarsree <amarsree007@gmail.com> 1690221976 +0530	Branch: renamed refs/heads/main to refs/heads/main
-61c091cb2597ffbe1b1a5a9da8a4bcb6e7b592c4 661dc0b00a6cd99a580f762aaedfcc2e8d34b68b amarsree <amarsree007@gmail.com> 1690376591 +0530	commit: fixing indentions
-661dc0b00a6cd99a580f762aaedfcc2e8d34b68b 661dc0b00a6cd99a580f762aaedfcc2e8d34b68b amarsree <amarsree007@gmail.com> 1691301685 +0530	checkout: moving from main to docker-setup
-661dc0b00a6cd99a580f762aaedfcc2e8d34b68b 3cfbe1739b81883204c359a7b226ac4df1932090 amarsree <amarsree007@gmail.com> 1691301722 +0530	commit: docker setup wip
-3cfbe1739b81883204c359a7b226ac4df1932090 661dc0b00a6cd99a580f762aaedfcc2e8d34b68b amarsree <amarsree007@gmail.com> 1691301886 +0530	checkout: moving from docker-setup to main
